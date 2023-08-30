@@ -33,6 +33,11 @@
         position: relative;
         background-color: rgba(0,169,251,0.2);
       }
+      .other {
+        font-size: 1.0em;
+        max-width: 41.5em;
+        color:rgb(86, 86, 86);
+      }
       #external_links {
         font-size: 1.2em;
         max-width: 34.7em;
@@ -65,48 +70,83 @@
         background-color: rgba(255, 255, 0, 0.09);
         font-weight: 400;
       }
+      #container {
+        display: flex;
+        align-items: center;
+        gap: 10%;
+      }
+      #recursive {
+        filter: invert();
+        width: 100%;
+        height: auto;
+      }
+      @media (max-width: 900px){
+        #container {
+          display: flex;
+          flex-wrap: wrap-reverse;
+        }
+        #recursive {
+          filter: invert();
+          width: 100%;
+          height: auto;
+          object-fit: none;
+        }
+      }
     </style>
+    <script>
+      const genNumRandom = (maxNumber = 12) => Math.floor((Math.random() * maxNumber) + 1);
+      const placeImage = (number = 1) => { document.getElementById("recursive").src = `img/${number}.gif` }
+      window.addEventListener('load', (e) => { placeImage(genNumRandom()) });
+    </script>
   </head>
   <body>
-    <h1>
-      Hi.
-    </h1>
-    <p style="font-weight:500; font-size:2.2em">
-      My name is Muklek,
-    </p>
-    <p>
-      I am a Computer Scientist (First Class Honours) working as a Software Engineer at
-      <a id="ubs" href='https://www.ubs.com/' target="_blank">(UBS Investment Bank)</a>.
-    </p>
-    <p>
-      My interests span from understanding the theory behind Intelligent Systems,
-      <span id="important">Algorithmic Design</span>,
-      low-level/low-latency programming and web engineering; I have deep curisity to
-      learn how things are built and unpuzzle the complexities. I find fascinating 
-      how software can revolutionize the way we live and make massive impacts into our society.
-    </p>
-    <p>
-      If your interests are aligned with mine, you can reach me out on
-      <a href="https://www.linkedin.com/in/muklek" target="_blank">Linkedin</a>
-      alternatively you may also use the following email 
-      <span id="important">me[at]muklek[dot]com</span>
-    </p>
-    <p id="recruiters">
-      For recruiters please use
-      <a href="https://www.linkedin.com/in/muklek" target="_blank">Linkedin</a>
-      to contact me.
-    </p>
-    <p id="external_links">
-      External links: 
-      <a href="https://www.linkedin.com/in/muklek" target="_blank">Linkedin</a>, 
-      <a id="git" href="https://www.github.com/muklek" target="_blank">Github</a>, 
-      <!-- <a id="hackerrank" href="https://www.hackerrank.com/muklek" target="_blank">HackerRank</a>,  -->
-      <!-- <a id="codeforces" href="#">Codeforces</a>, -->
-      <a id="angel" href="https://angel.co/muklek" target="_blank">Angel</a>
-    </p>
-    <p id="offtopic">
-      Off-topic - One of my favorite books (if you wonder how we, computer scientists, think and reason):
-      "Algorithms to Live By: The Computer Science of Human Decisions" by Brian Christian and Tom Griffiths.
-    </p>
+    <div id="container">
+      <div>
+        <h1>
+          Hi.
+        </h1>
+        <p style="font-weight:500; font-size:2.2em">
+          My name is Muklek,
+        </p>
+        <p>
+          I am a Computer Scientist (First Class Honours) working as a Software Engineer at
+          <a id="ubs" href='https://www.ubs.com/' target="_blank">(UBS Investment Bank)</a>.
+        </p>
+        <p>
+          My interests range from understanding the theory behind intelligent systems and
+          <span id="important">algorithmic design</span>
+          to low-level/low-latency programming and web engineering. I have a deep curiosity for
+          learning how things are built and for unraveling their complexities. I find it fascinating how
+          software can revolutionize the way we live and exert a massive impact on our society.
+        </p>
+        <p>
+          If your interests align with mine, you can reach out to me on 
+          <a href="https://www.linkedin.com/in/muklek" target="_blank">LinkedIn</a>;
+          alternatively, 
+          you may also contact me via the following email
+          <span id="important">me[at]muklek[dot]com</span>
+        </p>
+        <p class="other">
+          If you're a recruiter looking to get in touch, 
+          <a href="https://www.linkedin.com/in/muklek" target="_blank">LinkedIn</a>
+          is my preferred platform for professional correspondence.
+        </p>
+        <p class="other">
+          External links: 
+          <a href="https://www.linkedin.com/in/muklek" target="_blank">Linkedin</a>, 
+          <a id="git" href="https://www.github.com/muklek" target="_blank">Github</a>, 
+          <!-- <a id="hackerrank" href="https://www.hackerrank.com/muklek" target="_blank">HackerRank</a>,  -->
+          <!-- <a id="codeforces" href="#">Codeforces</a>, -->
+          <a id="angel" href="https://angel.co/muklek" target="_blank">Angel</a>
+        </p>
+        <p class="other">
+          Off-topic: If you're curious about how we, as computer scientists, think and reason, one of my favorite 
+          books is Algorithms to Live By: The Computer Science of Human Decisions by Brian Christian and Tom Griffiths.
+        </p>
+      </div>
+      <div>
+        <img id="recursive" src="" />
+      </div>
+    </div>
   </body>
 </html>
