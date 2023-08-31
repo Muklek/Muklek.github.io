@@ -94,8 +94,8 @@
       }
     </style>
     <script>
-      const genNumRandom = (maxNumber = 12) => Math.floor((Math.random() * maxNumber) + 1);
-      const placeImage = (number = 1) => { document.getElementById("recursive").src = `img/${number}.gif` }
+      const genNumRandom = (maxNumber = 21) => Math.floor((Math.random() * maxNumber) + 1);
+      const placeImage = (imageId = 1) => { document.getElementById("recursive").src = `img/${imageId}.gif` }
       window.addEventListener('load', (e) => { placeImage(genNumRandom()) });
     </script>
   </head>
