@@ -107,9 +107,10 @@
     <script>
       const genNumRandom = (maxNumber = 21) => Math.floor((Math.random() * maxNumber) + 1);
       const placeImage = (imageId = 1) => { document.getElementById("recursive").src = `img/${imageId}.gif`; };
-      document.addEventListener('DOMContentLoaded', (event) => {
-        placeImage(genNumRandom());
-        document.getElementById("reload").addEventListener('click', (e) => { placeImage(genNumRandom()); });
+      const replaceImage = () => placeImage(genNumRandom());
+      window.addEventListener('load', (e) => {
+        replaceImage();
+        document.getElementById("reload").addEventListener('click', (e) => { replaceImage(); });
       });
     </script>
   </head>
