@@ -79,6 +79,17 @@
         filter: invert();
         width: 100%;
         height: auto;
+        object-fit: none;
+      }
+      #reload {
+        background: none;
+        border: none;
+        padding: 0;
+        margin: 0;
+        font-family: inherit;
+        font-size: inherit;
+        cursor: pointer;
+        color: inherit;
       }
       @media (max-width: 900px){
         #container {
@@ -95,8 +106,11 @@
     </style>
     <script>
       const genNumRandom = (maxNumber = 21) => Math.floor((Math.random() * maxNumber) + 1);
-      const placeImage = (imageId = 1) => { document.getElementById("recursive").src = `img/${imageId}.gif` }
-      window.addEventListener('load', (e) => { placeImage(genNumRandom()) });
+      const placeImage = (imageId = 1) => { document.getElementById("recursive").src = `img/${imageId}.gif`; };
+      document.addEventListener('DOMContentLoaded', (event) => {
+        placeImage(genNumRandom());
+        document.getElementById("reload").addEventListener('click', (e) => { placeImage(genNumRandom()); });
+      });
     </script>
   </head>
   <body>
@@ -142,6 +156,9 @@
         <p class="other">
           Off-topic: If you're curious about how we, as computer scientists, think and reason, one of my favorite 
           books is Algorithms to Live By: The Computer Science of Human Decisions by Brian Christian and Tom Griffiths.
+        </p>
+        <p class="other">
+          <button id="reload">Click here</button> to randomly load a new recursive image.
         </p>
       </div>
       <div>
